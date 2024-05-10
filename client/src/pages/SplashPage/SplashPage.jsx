@@ -7,10 +7,9 @@ import content_img from "../../assets/Group 1139.png";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const SplashPage = () => {
-    
     return (
         <div className="splash_container">
-            <Link className="skip_btn" to="/authPage">
+            <Link className="skip_btn" to="/home">
                 Skip
             </Link>
 
@@ -23,8 +22,8 @@ const SplashPage = () => {
             </div>
 
             <img className="bottom_img" src={bottomImage} alt="bottomImage" />
-            <Button className="arrow_btn" onClick={()=> console.log(true)}>
-                <ArrowForwardIcon  />
+            <Button className="arrow_btn" onClick={() => console.log(true)}>
+                <ArrowForwardIcon />
             </Button>
         </div>
     );

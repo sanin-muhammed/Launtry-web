@@ -17,6 +17,7 @@
 form {
     display: flex;
     flex-direction: column;
+    justify-content: start ;
     gap: 10px;
     align-items: center;
 
@@ -35,21 +36,37 @@ form input::placeholder{
 }
 form .auth_btn{
     margin-top: 10px;
+    cursor: pointer;
 }
 form p{
     text-align: center;
 }
 .forgot_password{
+    cursor: pointer;
     width: 100%;
     max-width: 400px;
-    text-decoration: none;
     color: #fff;
     text-align: right;
     padding: 0 10px;
     font-weight: 500;
     font-size: .9em;
+    text-decoration: none;
 }
-
+.links{
+    margin:auto auto 0 ;
+    /* margin-top: 17%; */
+}
+.forgot_password.link{
+    text-decoration: underline;
+}
+.error_msg{
+    width: 100%;
+    max-width: 380px;
+    animation: opacityAnimation .4s ease-out ;
+    transition: .3s ease-in-out;
+    color: rgba(149, 9, 9, 0.862) !important;
+    font-weight: bold !important;
+}
 
 
 @media (max-width:500px) {

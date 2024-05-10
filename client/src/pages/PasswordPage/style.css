@@ -1,0 +1,47 @@
+.forgot_password_container {
+    display: flex !important;
+}
+
+.password_changed_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* gap: 20px; */
+}
+.password_changed_container {
+    form {
+        height: auto;
+    }
+}
+.forgot_password_container {
+    form {
+        height: 100%;
+        gap: 20px;
+        justify-content: start;
+        padding-top: 40px;
+    }
+    .auth_btn {
+        margin-top: 0;
+    }
+    p {
+        padding-top: 10px;
+        text-align: center;
+        
+    }
+}
+.successImg {
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 100px;
+    animation: opacity 2s ease-in-out;
+    
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
