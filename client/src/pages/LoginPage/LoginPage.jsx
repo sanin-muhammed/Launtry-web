@@ -5,13 +5,13 @@ import leftArrow from "../../assets/arrow-left.png";
 import { useState } from "react";
 import { loginUser } from "../../Actions/auth";
 import { Alert } from "@mui/material";
-import {  useSnackbar } from "notistack";
+import { useSnackbar } from "notistack";
 import { validateEmail, validatePhoneNumber } from "../../Actions/validation";
-import { useDispatch } from "react-redux"; 
+import { useDispatch } from "react-redux";
 import { setUserId } from "../../Redux/reducers/userId";
+// import { setUserId } from "../../Redux/reducers/userId";
 
 const LoginPage = () => {
-
     const { enqueueSnackbar } = useSnackbar();
 
     const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const LoginPage = () => {
             console.log("response =", response);
             if (response.status) {
                 dispatch(setUserId(response.data.userId));
-                enqueueSnackbar(response.message, { variant:"success" });
+                enqueueSnackbar(response.message, { variant: "success" });
                 navigate("/login_otp");
             } else if (response.error) {
                 setErrorMsg(response.message);

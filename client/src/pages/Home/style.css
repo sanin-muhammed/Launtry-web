@@ -1,26 +1,290 @@
-.Home_container{
+.Home_container {
     width: 100vw;
-    background: #ECF3F6;
+    overflow-x: hidden;
+    background: #ecf3f6;
     min-height: 100vh;
     position: relative;
 }
-.Home_container header{
+.Home_container header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 30px 50px;
+    transition: 0.3s ease-in-out;
 }
-.frame2_img{
+.Home_container header h1 {
+    font-size: 2.2em;
+    transition: 0.3s ease-in-out;
+}
+.frame2_img {
+    width: 700px;
     position: absolute;
     top: 0;
     right: 0;
+    transition: 0.3s ease-in-out;
 }
-.login_btn{
+.login_btn {
     text-decoration: none;
     font-weight: 500;
-    background: #1FACF3;
+    background: #1facf3;
     color: #fff;
     padding: 10px 35px;
     border-radius: 20px;
+    border: none;
     z-index: 999;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.Home_container section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px 0;
+    transition: 0.3s ease-in-out;
+
+}
+.slider {
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.slider_div {
+    width: 100%;
+    height: 500px;
+    transition: 0.3s ease-in-out;
+}
+.slider_div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    transition: 0.3s ease-in-out;
+}
+.slick-dots li {
+    width: 15px !important;
+    height: 15px !important;
+    background: #fff;
+    border-radius: 50%;
+    border: 3px solid #6e97ae;
+    top: 10px;
+    transition: 0.3s ease-in-out;
+}
+.slick-dots li button {
+    opacity: 0;
+}
+.slick-dots li.slick-active {
+    border: 3px solid #1facf3;
+    background: #1facf3;
+}
+
+.offer_div {
+    padding: 20px;
+    background: #fff;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+}
+.offer_header {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    color: #1facf3;
+    transition: 0.3s ease-in-out;
+}
+.offer_header img {
+    width: 30px;
+    transition: 0.3s ease-in-out;
+}
+.offers {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    transition: 0.3s ease-in-out;
+}
+.offers::-webkit-scrollbar {
+    display: none;
+}
+.offers .offer {
+    width: 100%;
+    min-width: 400px !important;
+    display: flex;
+    flex-direction: column;
+    background: #ecf3f6;
+    border-radius: 6px;
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+}
+.offer p {
+    font-weight: 500;
+}
+.offer h1 {
+    font-weight: 500;
+    color: #6e97ae;
+    font-size: 2em;
+    transition: 0.3s ease-in-out;
+}
+.services {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    transition: 0.3s ease-in-out;
+}
+.services .service {
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    padding: 50px 20px;
+    transition: 0.3s ease-in-out;
+}
+.services .service img {
+    height: 130px;
+    transition: 0.3s ease-in-out;
+}
+.services .service h2 {
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 992px) {
+    .slider,
+    .slider_div {
+        height: 400px;
+    }
+    .services {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+
+
+
+
+
+
+}
+
+@media (max-width: 768px) {
+    .frame2_img {
+        width: 90%;
+    }
+    .Home_container header h1 {
+        font-size: 1.7em;
+    }
+    .slider,
+    .slider_div {
+        height: 300px;
+    }
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+
+
+
+}
+
+@media (max-width: 500px) {
+    .Home_container section{
+        gap: 20px;
+    }
+    .Home_container header {
+        padding: 30px;
+    }
+    .Home_container header h1 {
+        font-weight: 500;
+        font-size: 1.3em;
+    }
+    .login_btn {
+        padding: 5px 25px;
+    }
+
+    .slider,
+    .slider_div {
+        height: 160px;
+    }
+    .slick-dots li {
+        width: 10px !important;
+        height: 10px !important;
+        border: 2px solid #6e97ae;
+    }
+
+    .offer_header {
+        gap: 10px;
+    }
+    .offer_header h1 {
+        font-size: 1.2em;
+    }
+    .offer_header img {
+        width: 20px;
+    }
+    .offer h1 {
+        font-size: 1.5em;
+    }
+    .services{
+        gap: 20px;
+    }
+    .services .service img {
+        height: 80px;
+    }
+    .services .service h2 {
+        font-size: 1.1em;
+    }
+
+
+
+
+
+}
+
+@media (max-width: 350px) {
+    .Home_container header {
+        padding: 20px;
+    }
+    .slider,
+    .slider_div {
+        height: 130px;
+    }
+    .offer_div{
+        padding: 15px;
+    }
+    .offer_header h1 {
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+    .offers .offer{
+        padding: 10px 20px;
+    }
+    .offer h1 {
+        font-size: 1.3em;
+    }
+   
+    .services .service {
+        padding: 30px 10px;
+    }
+    .services .service img {
+        height: 50px;
+    }
+    .services .service h2 {
+        font-weight: 400;
+        font-size: 1em;
+    }
+
+
+
 }

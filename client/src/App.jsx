@@ -10,12 +10,12 @@ import OtpVerification from "./pages/OtpPage/OtpVerification";
 import NewPassword from "./pages/PasswordPage/NewPassword";
 import PasswordChanged from "./pages/PasswordPage/PasswordChanged";
 import Home from "./pages/Home/Home";
+import Washing from "./pages/ServicePages/Washing";
 const App = () => {
     return (
         <>
             <Routes>
                 <Route exact path="/" Component={LandingPage} />
-                <Route exact path="/home" Component={Home} />
                 <Route path="/splash" Component={SplashPage} />
                 <Route path="/authPage" Component={AuthPage} />
                 <Route path="/login" Component={LoginPage} />
@@ -25,6 +25,10 @@ const App = () => {
                 <Route path="/forgot_password" Component={ForgotPassword} />
                 <Route path="/new_password" Component={NewPassword} />
                 <Route path="/password_changed" Component={PasswordChanged} />
+
+                <Route exact path="/home" Component={Home} />
+                <Route exact path="/washing" Component={Washing} />
+
             </Routes>
         </>
     );

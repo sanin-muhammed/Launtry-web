@@ -6,10 +6,10 @@ require("dotenv").config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER;
+
+
 // Initialize Twilio client
 const twilioClient = twilio(accountSid, authToken);
-
-
 
 // Function to send OTP via SMS
 exports.sendOTPviaSMS = async (phoneNumber, userId) => {
@@ -28,5 +28,3 @@ exports.sendOTPviaSMS = async (phoneNumber, userId) => {
         })
         .catch((error) => console.error("Error sending OTP via SMS:", error));
 };
-
-

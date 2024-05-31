@@ -1,0 +1,11 @@
+.washing_container{
+    background: #8FF2FF;
+    width: 100%;
+    min-height: 100vh;
+}
+.washing_container {
+    .skip_btn{
+        left: 30px;
+        width: 40px;
+    }
+}

@@ -12,7 +12,7 @@ const NewPassword = () => {
     const { enqueueSnackbar } = useSnackbar();
 
     const navigate = useNavigate();
-    const userId = useSelector((state) => state.userId);
+    const {userId} = useSelector((state) => state.userId);
     const [errorMsg, setErrorMsg] = useState("");
     const [formData, setFormData] = useState({
         password: "",
@@ -62,8 +62,8 @@ const NewPassword = () => {
                         {errorMsg}
                     </Alert>
                 )}
-                <input type="text" name="password" placeholder="Enter new password" onChange={handleInputChange} />
-                <input type="text" name="confirmPassword" placeholder="Confirm password" onChange={handleInputChange} />
+                <input type="password" name="password" placeholder="Enter new password" onChange={handleInputChange} />
+                <input type="password" name="confirmPassword" placeholder="Confirm password" onChange={handleInputChange} />
                 <button className="auth_btn" style={{ background: "#fff", color: "#1facf3" }}>
                     Reset Password
                 </button>

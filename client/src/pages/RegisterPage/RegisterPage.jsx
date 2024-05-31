@@ -6,7 +6,10 @@ import Alert from "@mui/material/Alert";
 import { registerUser } from "../../Actions/auth";
 import { validateEmail, validatePhoneNumber } from "../../Actions/validation";
 import { enqueueSnackbar } from "notistack";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../Redux/reducers/user";
 const RegisterPage = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: "",
@@ -48,8 +51,9 @@ const RegisterPage = () => {
             const response = await registerUser(formData);
             console.log("response =", response);
             if (response.status) {
-                navigate("/home");
+                dispatch(setUser(response.data));
                 enqueueSnackbar(response.message, { variant: "success" });
+                navigate("/home");
             } else if (response.error) {
                 setErrorMsg(response.message);
                 return;

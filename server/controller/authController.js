@@ -1,17 +1,17 @@
-const express = require("express");
 require("dotenv").config();
 const bcrypt = require("bcrypt");
 const User = require("../models/users");
 const { sendOTPviaSMS } = require("../utils/twilio");
 const { sendOTPviaEmail } = require("../utils/nodeMailer");
 const Otp = require("../models/otp");
+const { createJWT } = require("../utils/jwt");
 
 const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const phoneRegex = /^(\+\d{1,3})?[\s.-]?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
 
 // @des:Register api
 // method:post
-// api:/api/register
+// api:/register
 
 exports.post_register = async (req, res) => {
     console.log("req body = ", req.body);
@@ -32,7 +32,10 @@ exports.post_register = async (req, res) => {
             username: newUser.username,
             emailOrPhone: newUser.emailOrPhone,
         };
-        res.status(200).json({ error: false, status: true, message: "user registered successfully", data });
+        const token = await createJWT(data);
+        console.log({ token });
+
+        res.status(200).json({ error: false, status: true, message: "user registered successfully", data, token });
         console.log("user register successfully".yellow);
     } catch (error) {
         console.log("server error ", error);
@@ -42,7 +45,7 @@ exports.post_register = async (req, res) => {
 
 // @des:Login api
 // method:post
-// api:/api/login
+// api:/login
 
 exports.post_login = async (req, res) => {
     console.log("req body =", req.body);
@@ -79,9 +82,42 @@ exports.post_login = async (req, res) => {
     }
 };
 
-// @des:otp api
+// @des:Login Otp api
 // method:post
-// api:/api/verify_otp
+// api:/verify_otp_login
+
+exports.verify_otp_login = async (req, res) => {
+    console.log(req.body);
+    try {
+        const { otp, userId } = req.body;
+        const otpExist = await Otp.findOne({ userId, otp });
+        console.log({ otpExist });
+        if (otpExist) {
+            const user = await User.findById(userId, { password: 0, _id: 0 });
+            console.log({ user });
+            if (user) {
+                const data = {
+                    username: user.username,
+                    emailOrPhone: user.emailOrPhone,
+                };
+                const token = await createJWT(data);
+                console.log({ token });
+                console.log("user logined successfully".yellow);
+                res.status(200).json({ error: false, status: true, message: "user logined successfully", data: user, token });
+            }
+        } else {
+            console.log("OTP is incorrect".bold.red);
+            res.status(400).json({ error: true, message: "OTP is incorrect" });
+        }
+    } catch (error) {
+        console.log("server error ", error);
+        res.status(500).json({ error: true, status: false, message: "server error" });
+    }
+};
+
+// @des: Otp api
+// method:post
+// api:/verify_otp
 
 exports.verify_otp = async (req, res) => {
     console.log(req.body);
@@ -93,10 +129,11 @@ exports.verify_otp = async (req, res) => {
             const user = await User.findById(userId, { password: 0 });
             console.log({ user });
             if (user) {
-                console.log("user logined successfully".yellow);
-                res.status(200).json({ error: false, status: true, message: "user logined successfully", data: user });
+                console.log("OTP verified successfully".yellow);
+                res.status(200).json({ error: false, status: true, message: "OTP verified successfully", data: user });
             }
         } else {
+            console.log("OTP is incorrect".bold.red);
             res.status(400).json({ error: true, message: "OTP is incorrect" });
         }
     } catch (error) {
@@ -107,7 +144,7 @@ exports.verify_otp = async (req, res) => {
 
 // @des:otp api
 // method:post
-// api:/api/send_otp
+// api:/send_otp
 
 exports.send_otp = async (req, res) => {
     console.log(req.body);
@@ -119,7 +156,7 @@ exports.send_otp = async (req, res) => {
         } else if (emailOrPhone) {
             user = await User.findOne({ emailOrPhone });
         }
-        console.log('user = ',user);
+        console.log("user = ", user);
         if (!user) {
             console.log("user not exist".bold.red);
             res.status(400).json({ error: true, message: "user not exist" });
@@ -146,7 +183,7 @@ exports.send_otp = async (req, res) => {
 
 // @des:otp api
 // method:post
-// api:/api/create_password
+// api:/create_password
 
 exports.create_password = async (req, res) => {
     console.log(req.body);

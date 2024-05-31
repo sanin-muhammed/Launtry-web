@@ -7,9 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "./style.css";
 import { Alert } from "@mui/material";
-import { sendOTP, verifyOtp } from "../../Actions/auth";
+import { sendOTP, verifyOtpLogin } from "../../Actions/auth";
 import { setUserId } from "../../Redux/reducers/userId";
 import { useSnackbar } from "notistack";
+import { setUser } from "../../Redux/reducers/user";
 
 const OtpLogin = () => {
     const { enqueueSnackbar } = useSnackbar();
@@ -18,7 +19,7 @@ const OtpLogin = () => {
     const navigate = useNavigate();
     const [otp, setOtp] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
-    const userId = useSelector((state) => state.userId);
+    const { userId } = useSelector((state) => state.userId);
     const handleChange = (newValue) => {
         setOtp(newValue);
         setErrorMsg("");
@@ -31,8 +32,9 @@ const OtpLogin = () => {
         }
         const formData = { userId, otp };
         console.log(formData);
-        const response = await verifyOtp(formData);
+        const response = await verifyOtpLogin(formData);
         if (response.status) {
+            dispatch(setUser(response.data));
             enqueueSnackbar("Login Successful", { variant: "success" });
             navigate("/home");
         } else if (response.error) {

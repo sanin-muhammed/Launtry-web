@@ -11,9 +11,9 @@ import { setUserId } from "../../Redux/reducers/userId";
 import { enqueueSnackbar } from "notistack";
 
 const OtpVerification = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const userId = useSelector((state) => state.userId);
+    const { userId } = useSelector((state) => state.userId);
     const [errorMsg, setErrorMsg] = useState("");
     const [otp, setOtp] = useState("");
     console.log({ otp });
@@ -71,8 +71,8 @@ const OtpVerification = () => {
             <p className="links">
                 Didn’t received code?
                 <span className="forgot_password link" onClick={handleResendOTP}>
-                        RESEND OTP
-                    </span>
+                    RESEND OTP
+                </span>
             </p>
             <img src={frame_img} className="frame_img" alt="frame_img" />
         </div>
