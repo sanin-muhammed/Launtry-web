@@ -22,7 +22,7 @@ const Washing = () => {
             <Link className="skip_btn" to="/home">
                 <img src={leftArrow} alt="" />
             </Link>
-            <h1>Washing</h1>
+            <h1 className="heading">Washing</h1>
         </div>
     );
 };
