@@ -1,5 +1,6 @@
 const Banner = require("../models/banner");
 const Offer = require("../models/offer");
+const Product = require("../models/product");
 const Service = require("../models/service");
 
 
@@ -34,6 +35,18 @@ exports.all_services = async (req, res) => {
         console.log({ services });
         res.status(200).json({ error: false, status: true, message: "find all services successfully", data: services });
         console.log("find all services successfully".bold.yellow);
+    } catch (error) {
+        console.log("server error".bold.red);
+        res.status(500).json({ error: true, status: false, message: "server error" });
+    }
+};
+
+exports.all_products = async (req, res) => {
+    try {
+        const products = await Product.find();
+        console.log({ products });
+        res.status(200).json({ error: false, status: true, message: "find all products successfully", data: products });
+        console.log("find all products successfully".bold.yellow);
     } catch (error) {
         console.log("server error".bold.red);
         res.status(500).json({ error: true, status: false, message: "server error" });

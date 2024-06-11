@@ -23,7 +23,7 @@ const Services = () => {
     return (
         <div className="services">
             {services.map((item, index) => (
-                <Link to="/washing" className="service" key={index}>
+                <Link to={`/${item.service}`} className="service" key={index}>
                     <img src={item.serviceImage} alt="image" />
                     <h2>{item.service}</h2>
                 </Link>

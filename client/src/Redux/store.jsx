@@ -6,6 +6,10 @@ import userReducer from "./reducers/user";
 import bannerReducer from "./reducers/banners";
 import offerReducer from "./reducers/offers";
 import serviceReducer from "./reducers/services";
+import productReducer from "./reducers/products";
+import cartReducer from "./reducers/cart";
+ 
+
 const store = configureStore({
     reducer: {
         userId: userIdReducer,
@@ -13,6 +17,8 @@ const store = configureStore({
         banners: bannerReducer,
         offers: offerReducer,
         services: serviceReducer,
+        products: productReducer,
+        cart: cartReducer,
     },
 });
 

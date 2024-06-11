@@ -1,4 +1,4 @@
-import axios from "./axiosConfig";
+import axios from "../config/axiosConfig";
 
 export const registerUser = async (formData) => {
     try {
@@ -91,6 +91,3 @@ export const authentication = async () => {
         return error.response.data;
     }
 };
-
-
-

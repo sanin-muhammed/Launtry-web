@@ -27,8 +27,10 @@ const App = () => {
                 <Route path="/password_changed" Component={PasswordChanged} />
 
                 <Route exact path="/home" Component={Home} />
-                <Route exact path="/washing" Component={Washing} />
-
+                <Route exact path="/washing" element={<Washing serviceType="Washing" />} />
+                <Route exact path="/ironing" element={<Washing serviceType="Ironing" />} />
+                <Route exact path="/wash & iron" element={<Washing serviceType="Wash & Iron" />} />
+                <Route exact path="/dry clean" element={<Washing serviceType="Dry Clean" />} />
             </Routes>
         </>
     );
