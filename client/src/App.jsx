@@ -10,7 +10,9 @@ import OtpVerification from "./pages/OtpPage/OtpVerification";
 import NewPassword from "./pages/PasswordPage/NewPassword";
 import PasswordChanged from "./pages/PasswordPage/PasswordChanged";
 import Home from "./pages/Home/Home";
-import Washing from "./pages/ServicePages/Washing";
+import Services from "./pages/ServicePages/Services";
+import Instructions from "./pages/InstructionPage/Instructions";
+import Summary from "./pages/SummaryPage/Summary";
 const App = () => {
     return (
         <>
@@ -27,10 +29,13 @@ const App = () => {
                 <Route path="/password_changed" Component={PasswordChanged} />
 
                 <Route exact path="/home" Component={Home} />
-                <Route exact path="/washing" element={<Washing serviceType="Washing" />} />
-                <Route exact path="/ironing" element={<Washing serviceType="Ironing" />} />
-                <Route exact path="/wash & iron" element={<Washing serviceType="Wash & Iron" />} />
-                <Route exact path="/dry clean" element={<Washing serviceType="Dry Clean" />} />
+                <Route exact path="/washing" element={<Services serviceType="Washing" />} />
+                <Route exact path="/ironing" element={<Services serviceType="Ironing" />} />
+                <Route exact path="/wash & iron" element={<Services serviceType="Wash & Iron" />} />
+                <Route exact path="/dry clean" element={<Services serviceType="Dry Clean" />} />
+
+                <Route exact path="/instructions" Component={Instructions} />
+                <Route exact path="/summary" Component={Summary} />
             </Routes>
         </>
     );

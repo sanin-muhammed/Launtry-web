@@ -13,22 +13,23 @@ const Cart = () => {
     const { cartList, cartCount } = useSelector((state) => state.cart);
     console.log({ cartList });
 
+    const total = () => {
+        dispatch(setCartCount());
+        dispatch(setTotalPrice());
+    };
     const addCart = (item) => {
         console.log({ item });
         dispatch(addToCart(item));
-        dispatch(setCartCount());
-        dispatch(setTotalPrice());
+        total();
     };
 
     const incCart = (id) => {
         dispatch(increment(id));
-        dispatch(setCartCount());
-        dispatch(setTotalPrice());
+        total();
     };
     const decCart = (id) => {
         dispatch(decrement(id));
-        dispatch(setCartCount());
-        dispatch(setTotalPrice());
+        total();
     };
 
     const fetchProduct = async () => {

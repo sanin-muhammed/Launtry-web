@@ -41,13 +41,14 @@
     gap: 40px;
     padding: 30px 0;
     transition: 0.3s ease-in-out;
-
 }
 .slider {
     width: 90%;
     height: 500px;
     margin: auto;
     margin-bottom: 30px;
+    border-radius: 100px;
+    background: #fff;
 }
 .slider_div {
     width: 100%;
@@ -169,13 +170,6 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
-
-
-
-
-
-
-
 }
 
 @media (max-width: 768px) {
@@ -193,14 +187,10 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
-
-
-
-
 }
 
 @media (max-width: 500px) {
-    .Home_container section{
+    .Home_container section {
         gap: 20px;
     }
     .Home_container header {
@@ -236,7 +226,7 @@
     .offer h1 {
         font-size: 1.5em;
     }
-    .services{
+    .services {
         gap: 20px;
     }
     .services .service img {
@@ -245,11 +235,6 @@
     .services .service h2 {
         font-size: 1.1em;
     }
-
-
-
-
-
 }
 
 @media (max-width: 350px) {
@@ -260,20 +245,20 @@
     .slider_div {
         height: 130px;
     }
-    .offer_div{
+    .offer_div {
         padding: 15px;
     }
     .offer_header h1 {
         font-weight: 700;
         font-size: 1.1em;
     }
-    .offers .offer{
+    .offers .offer {
         padding: 10px 20px;
     }
     .offer h1 {
         font-size: 1.3em;
     }
-   
+
     .services .service {
         padding: 30px 10px;
     }
@@ -284,7 +269,4 @@
         font-weight: 400;
         font-size: 1em;
     }
-
-
-
 }

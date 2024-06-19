@@ -4,12 +4,12 @@ import { enqueueSnackbar } from "notistack";
 import img from "../../assets/Group 1081.svg";
 import leftArrow from "../../assets/arrow-left.svg";
 import { useEffect } from "react";
-import "./style.css";
 import Cart from "../../components/Orders/Cart";
 import { setService } from "../../Redux/reducers/cart";
 import { useDispatch } from "react-redux";
+import "./style.css";
 
-const Washing = ({ serviceType }) => {
+const Services = ({ serviceType }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -42,4 +42,4 @@ const Washing = ({ serviceType }) => {
     );
 };
 
-export default Washing;
+export default Services;

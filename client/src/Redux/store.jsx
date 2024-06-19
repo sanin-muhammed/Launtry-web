@@ -8,6 +8,7 @@ import offerReducer from "./reducers/offers";
 import serviceReducer from "./reducers/services";
 import productReducer from "./reducers/products";
 import cartReducer from "./reducers/cart";
+import instructionReducer from "./reducers/instructions";
  
 
 const store = configureStore({
@@ -19,6 +20,7 @@ const store = configureStore({
         services: serviceReducer,
         products: productReducer,
         cart: cartReducer,
+        instructions: instructionReducer,
     },
 });
 

@@ -59,6 +59,8 @@
         cursor: pointer;
     }
     .proceed_btn {
+        border-radius: 30px;
+        background: #1facf3;
         margin: auto;
         width: 100%;
         max-width: 400px;
@@ -69,6 +71,8 @@
         font-size: 1em;
         padding: 10px 20px;
         cursor: pointer;
+        color: #fff;
+        text-decoration: none;
     }
     .proceed_btn .total {
         display: flex;
@@ -98,7 +102,7 @@
     @media (max-width: 700px) {
         .products_div .position_div {
             top: -100px;
-            padding: 20px ;
+            padding: 20px;
         }
         .products {
             grid-template-columns: 1fr;
@@ -113,15 +117,15 @@
         }
     }
 }
-.count_btn{
+.count_btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: #ECF3F6;
+    background: #ecf3f6;
     padding: 5px;
     border-radius: 50px;
 }
-.count_btn span{
+.count_btn span {
     background: #fff;
     width: 20px;
     height: 20px;

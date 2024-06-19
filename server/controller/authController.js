@@ -39,7 +39,7 @@ exports.post_register = async (req, res) => {
         console.log("user register successfully".yellow);
     } catch (error) {
         console.log("server error ", error);
-        res.status(500).json({ error: true, status: true, message: "server error" });
+        res.status(500).json({ error: true, status: false, message: "server error" });
     }
 };
 
