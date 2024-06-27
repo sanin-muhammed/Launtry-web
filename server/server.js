@@ -4,6 +4,8 @@ const cors = require("cors");
 const morgan = require("morgan");
 const router = require("./routes/authRoutes");
 const routes = require("./routes/routes");
+const addressRoutes= require("./routes/addressRoutes");
+const orderRoutes= require("./routes/orderRoutes");
 const connectDB = require("./config/database");
 const app = express();
 require("dotenv").config();
@@ -17,6 +19,9 @@ connectDB();
 
 app.use("/api", router);
 app.use("/api", routes);
+app.use("/api", addressRoutes);
+app.use("/api", orderRoutes);
+
 
 app.listen(PORT, () => {
     console.log("server running on port".bold, PORT.yellow.bold);

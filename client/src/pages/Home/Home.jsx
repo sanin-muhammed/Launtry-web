@@ -2,16 +2,17 @@ import "./style.css";
 import frame2 from "../../assets/Frame2.png";
 import { Link } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import OfferSlider from "../../components/Offers/OfferSlider";
 import OfferDiv from "../../components/Offers/OfferDiv";
 import Services from "../../components/ServicesBox/Services";
 import { enqueueSnackbar } from "notistack";
 import { useEffect, useState } from "react";
+import { setUser } from "../../Redux/reducers/user";
 
 const Home = () => {
-    const [user, setUser] = useState({});
     const dispatch = useDispatch();
+    const { user } = useSelector((state) => state.user);
     const handleLogout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("data");
@@ -21,7 +22,7 @@ const Home = () => {
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("data"));
-        setUser(user);
+        dispatch(setUser(user));
     }, []);
 
     return (

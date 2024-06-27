@@ -53,7 +53,7 @@ const Cart = () => {
                                 <img src={item.productImage} alt="product image" />
                                 <p>{item.product}</p>
                                 <p>₹ {item.price}</p>
-                                {count > 0 ? <AfterAdd incCart={() => incCart(item._id)} decCart={() => decCart(item._id)} count={count} /> : <BeforeAdd addCart={() => addCart({ productId: item._id, product: item.product, price: item.price })} />}
+                                {count > 0 ? <AfterAdd incCart={() => incCart(item._id)} decCart={() => decCart(item._id)} count={count} /> : <BeforeAdd addCart={() => addCart({ productId: item._id, product: item.product, price: item.price, productImage: item.productImage })} />}
                             </div>
                         );
                     })}

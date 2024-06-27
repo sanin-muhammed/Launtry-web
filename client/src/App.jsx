@@ -13,6 +13,7 @@ import Home from "./pages/Home/Home";
 import Services from "./pages/ServicePages/Services";
 import Instructions from "./pages/InstructionPage/Instructions";
 import Summary from "./pages/SummaryPage/Summary";
+import BookingConfirmPage from "./pages/BookingConfirmPage/BookingConfirmPage";
 const App = () => {
     return (
         <>
@@ -29,13 +30,18 @@ const App = () => {
                 <Route path="/password_changed" Component={PasswordChanged} />
 
                 <Route exact path="/home" Component={Home} />
-                <Route exact path="/washing" element={<Services serviceType="Washing" />} />
-                <Route exact path="/ironing" element={<Services serviceType="Ironing" />} />
+                <Route exact path="/cart" element={<Services serviceType="Washing" />} />
+                {/* <Route exact path="/ironing" element={<Services serviceType="Ironing" />} />
                 <Route exact path="/wash & iron" element={<Services serviceType="Wash & Iron" />} />
-                <Route exact path="/dry clean" element={<Services serviceType="Dry Clean" />} />
+                <Route exact path="/dry clean" element={<Services serviceType="Dry Clean" />} /> */}
 
                 <Route exact path="/instructions" Component={Instructions} />
                 <Route exact path="/summary" Component={Summary} />
+
+
+
+
+                <Route exact path="/booking_confirmed" Component={BookingConfirmPage} />
             </Routes>
         </>
     );

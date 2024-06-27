@@ -1,14 +1,24 @@
 import React from "react";
 import rightArrow from "../../../assets/arrow-right.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { enqueueSnackbar } from "notistack";
 
 const ProceedBtn = () => {
+    const navigate = useNavigate();
     const { cartCount, totalPrice } = useSelector((state) => state.cart);
     // console.log({ cartCount });
 
+    const handleButton = async () => {
+        if (cartCount > 0) {
+            navigate("/instructions");
+        } else {
+            enqueueSnackbar("Please select products", { variant: "info" });
+        }
+    };
+
     return (
-        <Link to="/instructions" className="proceed_btn">
+        <button onClick={handleButton} className="proceed_btn">
             <div className="total">
                 <h3>₹ {totalPrice}</h3>
                 <p>{cartCount} items</p>
@@ -17,7 +27,7 @@ const ProceedBtn = () => {
                 Proceed
                 <img src={rightArrow} alt="" />
             </div>
-        </Link>
+        </button>
     );
 };
 

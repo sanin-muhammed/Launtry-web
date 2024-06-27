@@ -9,7 +9,6 @@ import { useSnackbar } from "notistack";
 import { validateEmail, validatePhoneNumber } from "../../Actions/validation";
 import { useDispatch } from "react-redux";
 import { setUserId } from "../../Redux/reducers/userId";
-// import { setUserId } from "../../Redux/reducers/userId";
 
 const LoginPage = () => {
     const { enqueueSnackbar } = useSnackbar();

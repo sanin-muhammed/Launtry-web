@@ -9,6 +9,8 @@ import serviceReducer from "./reducers/services";
 import productReducer from "./reducers/products";
 import cartReducer from "./reducers/cart";
 import instructionReducer from "./reducers/instructions";
+import pickupReducer from "./reducers/pickups";
+import summaryReducer from "./reducers/summary";
  
 
 const store = configureStore({
@@ -21,6 +23,8 @@ const store = configureStore({
         products: productReducer,
         cart: cartReducer,
         instructions: instructionReducer,
+        pickups: pickupReducer,
+        summary: summaryReducer,
     },
 });
 

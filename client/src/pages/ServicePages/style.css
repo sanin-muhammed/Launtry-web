@@ -7,6 +7,7 @@
     .skip_btn {
         left: 30px;
         width: 40px;
+        cursor: pointer;
     }
     .heading {
         text-align: center;

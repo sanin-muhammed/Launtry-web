@@ -3,19 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { enqueueSnackbar } from "notistack";
 import img from "../../assets/Group 1081.svg";
 import leftArrow from "../../assets/arrow-left.svg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cart from "../../components/Orders/Cart";
-import { setService } from "../../Redux/reducers/cart";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
 
-const Services = ({ serviceType }) => {
+const Services = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const {serviceId} = useSelector((state)=> state.cart)
+    const {services} = useSelector((state)=> state.services)
+    
+    const [serviceName,setServiceName] = useState("")
 
-    const handleservice = () => {
-        dispatch(setService(serviceType));
-    };
     const checkToken = async () => {
         const response = await authentication();
         if (response.error) {
@@ -24,9 +24,13 @@ const Services = ({ serviceType }) => {
             return;
         }
     };
+    const findServiceName = ()=>{
+        const service = services.find((item)=> item._id=== serviceId)
+        setServiceName(service.service)
+    }
     useEffect(() => {
-        handleservice();
         checkToken();
+        findServiceName()
     }, []);
     return (
         <div className="washing_container">
@@ -34,7 +38,7 @@ const Services = ({ serviceType }) => {
                 <img src={leftArrow} alt="" />
             </Link>
             <div className="top_div">
-                <h1 className="heading">{serviceType}</h1>
+                <h1 className="heading">{serviceName}</h1>
                 <img className="top_img" src={img} alt="" />
             </div>
             <Cart />

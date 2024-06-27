@@ -1,8 +1,10 @@
+import { enqueueSnackbar } from "notistack";
 import axios from "../config/axiosConfig";
+import { useSelector } from "react-redux";
 
-export const all_banners = async () => {
+export const allAddress = async () => {
     try {
-        const response = await axios.get("/all_banners");
+        const response = await axios.get("/all_address");
         console.log(" successful:", response.data);
         return response.data;
     } catch (error) {
@@ -11,9 +13,9 @@ export const all_banners = async () => {
     }
 };
 
-export const allOffers = async () => {
+export const addAddress = async (formData) => {
     try {
-        const response = await axios.get("/all_offers");
+        const response = await axios.post("/add_address", formData);
         console.log(" successful:", response.data);
         return response.data;
     } catch (error) {
@@ -22,9 +24,9 @@ export const allOffers = async () => {
     }
 };
 
-export const allServices = async () => {
+export const editAddress = async (id, formData) => {
     try {
-        const response = await axios.get("/all_services");
+        const response = await axios.post(`/edit_address?id=${id}`, formData);
         console.log(" successful:", response.data);
         return response.data;
     } catch (error) {
@@ -33,9 +35,9 @@ export const allServices = async () => {
     }
 };
 
-export const allProducts = async () => {
+export const deleteAddress = async (id) => {
     try {
-        const response = await axios.get("/all_products");
+        const response = await axios.delete(`/delete_address?id=${id}`);
         console.log(" successful:", response.data);
         return response.data;
     } catch (error) {
@@ -44,9 +46,10 @@ export const allProducts = async () => {
     }
 };
 
-export const allPickups = async () => {
+export const confirmOrder = async (data) => {
+    console.log("data===", data);
     try {
-        const response = await axios.get("/all_pickups");
+        const response = await axios.post("/add_order", data);
         console.log(" successful:", response.data);
         return response.data;
     } catch (error) {

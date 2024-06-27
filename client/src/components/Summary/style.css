@@ -1,0 +1,216 @@
+.pickupdate_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+.pickupdate_container h3,
+.delivery_container h3 {
+    color: #1facf3;
+}
+.select_address {
+    border: 1.5px solid #fff;
+}
+.select_address:hover {
+    border: 1.5px solid #1facf3;
+}
+.select_div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.select_box {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #6e95ae5c;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.coupon_div {
+    display: flex;
+    gap: 10px;
+}
+.coupon_div input {
+    padding: 10px;
+    flex: 1;
+    border-radius: 5px;
+    border: 2px solid #6e95ae5c;
+    font-weight: bold;
+    outline: none;
+    text-transform: uppercase;
+}
+.coupon_div input::placeholder {
+    text-transform: none;
+    font-weight: normal;
+}
+.coupon_div button {
+    background: #1facf3;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+#set {
+    border: 1.5px solid #1facf3;
+}
+
+.delivery_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+.delivery_container .deliveries {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.delivery_container .deliveries .delivery {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.delivery_container .deliveries p {
+    font-weight: 500;
+}
+.delivery_container .deliveries p span {
+    color: #6e97ae;
+}
+.switch_div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart_items {
+    flex: 1;
+}
+.receipt_container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    height: 440px;
+}
+.receipt_container h3 {
+    color: #1facf3;
+}
+.receipt_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.receipt_item h3 {
+    color: #000;
+}
+.receipt_item p {
+    width: 100%;
+    text-align: center;
+}
+.receipt_item p:first-child {
+    text-align-last: left;
+}
+.receipt_item p:last-child {
+    text-align-last: right;
+}
+.extra_charge_items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0;
+}
+.green_item {
+    color: #30d472;
+}
+.product_list {
+    height: 90%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* padding: 10px 0; */
+    border-radius: 10px;
+}
+.product_list::-webkit-scrollbar {
+    display: none;
+}
+.product_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ecf3f6;
+    border-radius: 10px;
+    padding: 15px 20px;
+    /* padding-right: 10px; */
+}
+.product_item h3 {
+    color: #000;
+}
+.count {
+    margin-left: auto;
+}
+
+.product_item {
+    h3 {
+        font-weight: 500;
+    }
+    h5,
+    h4 {
+        font-weight: normal;
+    }
+}
+.payment_container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.payment_methods {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.payment_methods div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 5px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.payment_methods div p {
+    font-weight: 600;
+    margin-right: auto;
+}
+.payment_methods div img:first-child {
+    width: 60px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0;
+}
+.cod_img {
+    background: #ddf7fa;
+}
+.card_img {
+    background: #d2eefd;
+}
+.upi_img {
+    background: #fdecd2;
+}

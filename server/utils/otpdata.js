@@ -31,4 +31,4 @@ async function checkOTPexpiration() {
 }
 
 // Schedule the cleanup function to run every second
-setInterval(checkOTPexpiration, 1000); // 60000 milliseconds = 1 minute
+// setInterval(checkOTPexpiration, 1000); // 60000 milliseconds = 1 minute

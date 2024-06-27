@@ -1,27 +1,33 @@
 import { Link, useNavigate } from "react-router-dom";
 import leftArrow from "../../assets/arrow-left.svg";
 import "./style.css";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { setInstructions } from "../../Redux/reducers/instructions";
 import { enqueueSnackbar } from "notistack";
 
 const Instructions = () => {
+    const { instructions } = useSelector((state) => state.instructions);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [water, setWater] = useState("Hot");
-    const [fabricSoftener, setFabricSoftener] = useState("No");
-    const [detergent, setDetergent] = useState("Normel");
+    const [water, setWater] = useState("");
+    const [fabricSoftener, setFabricSoftener] = useState("");
+    const [detergent, setDetergent] = useState("");
     const [note, setNote] = useState("");
     const handleSubmit = async () => {
         if (note) {
             dispatch(setInstructions({ water, fabricSoftener, detergent, note }));
             navigate("/summary");
         } else {
-            enqueueSnackbar("please enter note", { variant: "error" });
+            enqueueSnackbar("please enter note", { variant: "info" });
         }
     };
-
+    useEffect(() => {
+        setWater(instructions?.water || "Hot");
+        setFabricSoftener(instructions?.fabricSoftener || "No");
+        setDetergent(instructions?.detergent || "Normel");
+        setNote(instructions?.note);
+    }, []);
     return (
         <div className="washing_container instructions_container">
             <div className="skip_btn " onClick={() => navigate(-1)}>

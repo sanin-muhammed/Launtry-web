@@ -93,7 +93,7 @@ exports.verify_otp_login = async (req, res) => {
         const otpExist = await Otp.findOne({ userId, otp });
         console.log({ otpExist });
         if (otpExist) {
-            const user = await User.findById(userId, { password: 0, _id: 0 });
+            const user = await User.findById(userId, { password: 0,  });
             console.log({ user });
             if (user) {
                 const data = {
