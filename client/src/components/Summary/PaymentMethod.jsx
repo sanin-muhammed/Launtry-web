@@ -16,7 +16,7 @@ const PaymentMethod = () => {
     const dispatch = useDispatch();
 
     const { user } = useSelector((state) => state.user);
-    const { cartList, serviceId } = useSelector((state) => state.cart);
+    const { cartList, service } = useSelector((state) => state.cart);
     const { instructions } = useSelector((state) => state.instructions);
     const { address, pickupDate, delivery, totalAmount } = useSelector((state) => state.summary);
 
@@ -30,15 +30,11 @@ const PaymentMethod = () => {
         if (!user._id) {
             enqueueSnackbar("User information is missing", { variant: "error" });
             return;
-        } else if (!serviceId) {
+        } else if (!service) {
             enqueueSnackbar("Service information is missing", { variant: "error" });
             return;
         } else if (!cartList.length) {
             enqueueSnackbar("products is missing", { variant: "error" });
-            return;
-        } else if (!instructions.note) {
-            ``;
-            enqueueSnackbar("Instructions are missing", { variant: "error" });
             return;
         } else if (!address) {
             enqueueSnackbar("Pickup address is missing", { variant: "error" });
@@ -60,7 +56,7 @@ const PaymentMethod = () => {
         setOpen(false);
     };
     const handleClickPayment = async () => {
-        const response = await confirmOrder({ userId: user._id, serviceId, products: cartList, instructions, pickupDate, pickupAddressId: address, deliveryAddress: delivery.delivery, expectedDelivery: delivery.expectedDelivery, expressDelivery: delivery.expressDelivery, paymentMethod, totalAmount });
+        const response = await confirmOrder({ userId: user._id, serviceId: service._id, products: cartList, instructions: instructions ? instructions : {}, pickupDate, pickupAddressId: address, deliveryAddress: delivery.delivery, expectedDelivery: delivery.expectedDelivery, expressDelivery: delivery.expressDelivery, paymentMethod, totalAmount });
         if (response.status) {
             navigate("/booking_confirmed");
         } else {

@@ -6,11 +6,11 @@ const orderSchema = new mongoose.Schema({
         required: true,
     },
     userId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
     serviceId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
     products: {
@@ -26,11 +26,11 @@ const orderSchema = new mongoose.Schema({
         required: true,
     },
     pickupAddressId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
     deliveryAddress: {
-        type: String,
+        type: String ,
         required: true,
     },
     expectedDelivery: {
@@ -46,6 +46,10 @@ const orderSchema = new mongoose.Schema({
         required: true,
     },
     paymentStatus: {
+        type: String,
+        required: true,
+    },
+    orderStatus: {
         type: String,
         required: true,
     },

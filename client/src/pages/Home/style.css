@@ -2,7 +2,7 @@
     width: 100vw;
     overflow-x: hidden;
     background: #ecf3f6;
-    min-height: 100vh;
+    height: 100vh;
     position: relative;
 }
 .Home_container header {
@@ -11,6 +11,20 @@
     justify-content: space-between;
     padding: 30px 50px;
     transition: 0.3s ease-in-out;
+    /* background: #000; */
+}
+.Home_container header div{
+    position: relative;
+    display: flex;
+    align-items: start;
+}
+.Home_container header .navbar{
+    position: absolute;
+    z-index: 999;
+    /* background: red; */
+    /* width: 100px ; */
+    right: 0;
+    top: 10px;
 }
 .Home_container header h1 {
     font-size: 2.2em;
@@ -24,6 +38,7 @@
     transition: 0.3s ease-in-out;
 }
 .login_btn {
+    margin-right: 80px;
     text-decoration: none;
     font-weight: 500;
     background: #1facf3;
@@ -34,6 +49,9 @@
     z-index: 999;
     transition: 0.3s ease-in-out;
     cursor: pointer;
+    &:hover{
+        background: #007ebc;
+    }
 }
 .Home_container section {
     display: flex;
@@ -160,6 +178,11 @@
     font-weight: 500;
     transition: 0.3s ease-in-out;
 }
+
+
+
+
+
 
 @media (max-width: 992px) {
     .slider,

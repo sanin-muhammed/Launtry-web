@@ -9,6 +9,9 @@
     background: #1facf3;
     color: #fff;
 }
+.booking_container::-webkit-scrollbar{
+    display: none;
+}
 .booking_container div {
     display: flex;
     flex-direction: column;

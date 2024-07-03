@@ -11,7 +11,7 @@ import cartReducer from "./reducers/cart";
 import instructionReducer from "./reducers/instructions";
 import pickupReducer from "./reducers/pickups";
 import summaryReducer from "./reducers/summary";
- 
+import orderReducer from "./reducers/orders";
 
 const store = configureStore({
     reducer: {
@@ -25,6 +25,7 @@ const store = configureStore({
         instructions: instructionReducer,
         pickups: pickupReducer,
         summary: summaryReducer,
+        orders: orderReducer,
     },
 });
 

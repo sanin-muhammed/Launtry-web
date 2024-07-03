@@ -46,8 +46,18 @@ export const deleteAddress = async (id) => {
     }
 };
 
+export const allOrders = async (id) => {
+    try {
+        const response = await axios.get(`/all_orders?id=${id}`);
+        console.log(" successful:", response.data);
+        return response.data;
+    } catch (error) {
+        console.log(" error =", error.response.data);
+        return error.response.data;
+    }
+};
+
 export const confirmOrder = async (data) => {
-    console.log("data===", data);
     try {
         const response = await axios.post("/add_order", data);
         console.log(" successful:", response.data);

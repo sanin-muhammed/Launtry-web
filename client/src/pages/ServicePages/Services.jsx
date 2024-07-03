@@ -11,8 +11,7 @@ import "./style.css";
 const Services = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {serviceId} = useSelector((state)=> state.cart)
-    const {services} = useSelector((state)=> state.services)
+    const {service} = useSelector((state)=> state.cart)
     
     const [serviceName,setServiceName] = useState("")
 
@@ -25,7 +24,6 @@ const Services = () => {
         }
     };
     const findServiceName = ()=>{
-        const service = services.find((item)=> item._id=== serviceId)
         setServiceName(service.service)
     }
     useEffect(() => {

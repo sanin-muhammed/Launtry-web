@@ -7,6 +7,7 @@ import { setInstructions } from "../../Redux/reducers/instructions";
 import { enqueueSnackbar } from "notistack";
 
 const Instructions = () => {
+
     const { instructions } = useSelector((state) => state.instructions);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -22,6 +23,8 @@ const Instructions = () => {
             enqueueSnackbar("please enter note", { variant: "info" });
         }
     };
+
+    
     useEffect(() => {
         setWater(instructions?.water || "Hot");
         setFabricSoftener(instructions?.fabricSoftener || "No");

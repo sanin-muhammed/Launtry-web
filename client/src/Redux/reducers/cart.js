@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     cartList: [],
     cartCount: 0,
     totalPrice: 0,
-    serviceId: "",
+    service: "",
 };
 
 const cartSlice = createSlice({
@@ -46,13 +46,13 @@ const cartSlice = createSlice({
                 return accumulator + currentValue.count;
             }, 0);
         },
-        setServiceId: (state, action) => {
-            state.serviceId = action.payload;
-            console.log("serviceId =", state.serviceId);
+        setService: (state, action) => {
+            state.service = action.payload;
+            console.log("service =", state.service);
         },
     },
 });
 
-export const { increment, decrement, addToCart, setTotalPrice, setCartCount, setServiceId } = cartSlice.actions;
+export const { increment, decrement, addToCart, setTotalPrice, setCartCount, setService } = cartSlice.actions;
 
 export default cartSlice.reducer;
