@@ -1,6 +1,6 @@
 import frame2 from "../../assets/Frame2.png";
 import { Link } from "react-router-dom";
-
+import Avatar from "@mui/material/Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import OfferSlider from "../../components/Offers/OfferSlider";
 import OfferDiv from "../../components/Offers/OfferDiv";
@@ -8,8 +8,8 @@ import Services from "../../components/ServicesBox/Services";
 import { enqueueSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 import { setUser } from "../../Redux/reducers/user";
-import Navbar from "../../components/Navbar";
 import "./style.css";
+import Navbar from "../../components/Navbar";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -30,18 +30,20 @@ const Home = () => {
         <div className="Home_container">
             <img src={frame2} className="frame2_img" alt="background img" />
             <header>
-                {user?.username ? <h1>Hello {user.username}</h1> : <h1>Hello Customer</h1>}
-                <div>
+                <div className="nav">
+                    {user?.username ? <h1>Hello {user.username}</h1> : <h1>Hello Customer</h1>}
                     {user ? (
-                        <button onClick={handleLogout} className="login_btn">
-                            Logout
-                        </button>
+                        <>
+                            <Navbar />
+                            {/* <button onClick={handleLogout} className="login_btn">
+                                Logout
+                                </button> */}
+                        </>
                     ) : (
                         <Link to="/authPage" className="login_btn">
                             Join
                         </Link>
                     )}
-                    <Navbar />
                 </div>
             </header>
             <section>

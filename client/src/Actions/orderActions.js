@@ -1,6 +1,4 @@
-import { enqueueSnackbar } from "notistack";
 import axios from "../config/axiosConfig";
-import { useSelector } from "react-redux";
 
 export const allAddress = async () => {
     try {
@@ -47,13 +45,17 @@ export const deleteAddress = async (id) => {
 };
 
 export const allOrders = async (id) => {
+    const token = localStorage.getItem("token");
     try {
-        const response = await axios.get(`/all_orders?id=${id}`);
+        const headers = {
+            Authorization: `Bearer ${token}`,
+        };
+        const response = await axios.get(`/all_orders?id=${id}`, { headers });
         console.log(" successful:", response.data);
-        return response.data;
+        return response;
     } catch (error) {
         console.log(" error =", error.response.data);
-        return error.response.data;
+        return error.response;
     }
 };
 

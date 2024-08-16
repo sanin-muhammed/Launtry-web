@@ -1,6 +1,6 @@
 const express = require("express");
-const { add_address, all_address, edit_address, delete_address } = require("../controller/addressController");
 const router = express.Router();
+const { add_address, all_address, edit_address, delete_address } = require("../controller/addressController");
 
 
 router.get('/all_address',all_address)

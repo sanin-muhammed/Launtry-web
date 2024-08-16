@@ -1,0 +1,155 @@
+.profile_container {
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    min-height: 100vh;
+}
+
+.profile_container header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.frame {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36%;
+}
+
+.profile_section {
+    display: grid;
+    grid-template-columns: .6fr 1fr;
+    grid-template-rows: .5fr 1fr;
+    grid-template-areas: "header header""profile_div btns_div";
+    gap: 20px;
+    background: #C3E5F5;
+    border-bottom-right-radius: 90px;
+    padding: 30px 60px;
+}
+
+header {
+    grid-area: header;
+}
+
+.profile_div {
+    grid-area: profile_div;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 40px;
+
+}
+
+.profile_image {
+    position: relative;
+    /* border: 3px solid #fff; */
+    border-radius: 50%;
+    display: flex;
+    width: 94px;
+    height: 94px;
+    background: #fff;
+    animation: opacityAnimation 5s ease;
+
+
+}
+
+.profile_image img {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 88px;
+    animation: imageAnim 1s ease;
+    scale: 1;
+
+}
+
+@keyframes imageAnim {
+    0%{
+        opacity: 0;
+        scale: 0;
+    }
+    70%{
+        opacity: 1;
+        scale: 1.3;
+        left: 3px;
+        top: 3px;
+    }
+}
+
+.btns_div {
+    grid-area: btns_div;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    z-index: 999;
+    padding: 0px 20px;
+    border-top-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+    height: 100px;
+    margin: auto 0;
+    transition: .3s ease-in-out;
+
+    &&:hover {
+        border-radius: 45px;
+        box-shadow: 0 0 6px #34D5E5;
+    }
+
+}
+
+.btns_div .btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    background: #34D5E5;
+    border-radius: 50px;
+    font-weight: 500;
+
+    && img {
+        border-radius: 50%;
+        animation: zoomAnim 1.3s ease-in-out;
+    }
+
+}
+
+@keyframes zoomAnim {
+    0% {
+        background: #fff;
+        scale: .1;
+    }
+
+    70% {
+        scale: 1.2;
+    }
+
+    100% {
+        background: none;
+        scale: 1;
+    }
+}
+
+.edit_profile {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #1FACF3FA;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .2s ease-in-out;
+
+    &&:hover {
+        letter-spacing: 1px;
+
+
+    }
+}

@@ -1,11 +1,19 @@
 import React, { useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import RatingDrawer from "./RatingDrawer";
+import { useDispatch, useSelector } from "react-redux";
+import { setOrder } from "../../Redux/reducers/orders";
+import { useNavigate } from "react-router-dom";
 
 const OrderList = () => {
-    const { orders } = useSelector((state) => state.orders);
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+        const { orders } = useSelector((state) => state.orders);
 
-    const [bool, setBool] = useState(false);
+    const handleClickDetails = (item) => {
+        console.log("item===", item);
+        dispatch(setOrder(item))
+        navigate('details')
+
+    };
 
     return (
         <>
@@ -18,13 +26,13 @@ const OrderList = () => {
                             </div>
                             <div className="date_div">
                                 <h4>{item.createdDate}</h4>
-                                <p>$499</p>
+                                {/* <p>$499</p>   */}
                             </div>
                         </div>
                         <div className="detail_side">
                             <div className="detail_head">
                                 <h3>{item.serviceDetails.service}</h3>
-                                <p className={item.orderStatus === "Out for delivery" ? "green_status" : item.orderStatus === "Cancelled" ? "red_status" : "yellow_status"}>{item.orderStatus === "Out for delivery" ? "Completed" : item.orderStatus === "Cancelled" ? "Cancelled" : "On-going"}</p>
+                                <p className={item.status === "Completed" ? "green_status" : item.status === "Cancelled" ? "red_status" : "yellow_status"}>{item.status}</p>
                             </div>
                             <div className="product_items">
                                 {item.products.slice(0, 3).map((item, index) => (
@@ -33,17 +41,16 @@ const OrderList = () => {
                                         <p>X{item.count}</p>
                                     </div>
                                 ))}
-                                {item.products.length - 3 > 0 ? <p id="more">+ {item.products.length - 3} items</p> : <p>&nbsp;</p>}
+                                {item.products.length - 3 > 0 ? <p id="more">+{item.products.length - 3} items</p> : <p>&nbsp;</p>}
                             </div>
                             <div className="buttons">
-                                <button>Details</button>
-                                {item.orderStatus === "Out for delivery" ? <button onClick={() => setBool(true)}>Add Rating</button> : item.orderStatus === "Cancelled" ? "" : <button>Tracking</button>}
+                                <button onClick={() => handleClickDetails(item)}>Details</button>
+                                {item.status === "Completed" ? <button>Add Rating</button> : item.status === "On-going" ? <button>Tracking</button> : null}
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-            <RatingDrawer setBool={setBool} bool={bool} />
         </>
     );
 };

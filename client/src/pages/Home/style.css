@@ -5,31 +5,78 @@
     height: 100vh;
     position: relative;
 }
-.Home_container header {
+ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 50px;
+    padding: 20px 60px;
     transition: 0.3s ease-in-out;
-    /* background: #000; */
+    && .nav{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        background: #ffffff;
+        padding: 10px 20px;
+        border-radius: 10px;
+        transition: 0.3s ease-in-out;
+        
+    }
+        && h1{
+            text-transform: capitalize;
+            font-weight: 600;
+            animation: opacityAnimation 1s ease-in-out;
+        }
 }
-.Home_container header div{
-    position: relative;
+
+
+ header div{
     display: flex;
-    align-items: start;
+    align-items: center;
 }
-.Home_container header .navbar{
-    position: absolute;
-    z-index: 999;
-    /* background: red; */
-    /* width: 100px ; */
-    right: 0;
-    top: 10px;
-}
-.Home_container header h1 {
+ header h1 {
     font-size: 2.2em;
     transition: 0.3s ease-in-out;
 }
+
+.navbar{
+    display: flex;
+    align-items: center !important;
+    gap: 20px;
+
+}
+.navbar .nav_link{
+    text-decoration: none;
+    color: #000;
+    font-weight: 650;
+    letter-spacing: 1px;
+    animation: letterAnim 1s ease-in-out;
+    z-index: 999;
+    transition: .2s ease-in-out;
+    &&:hover{
+        color: #1facf3;
+        letter-spacing: 1.7px;
+    }
+}
+.active{
+    color: #1facf3 !important;
+
+}
+@keyframes letterAnim {
+    0%{
+        letter-spacing: -20px;
+        opacity: 0;
+    }70%{
+        letter-spacing: 4px;
+    }100%{
+        opacity: 1;
+        letter-spacing: 1px;
+    }
+}
+
+
+
 .frame2_img {
     width: 700px;
     position: absolute;
@@ -38,7 +85,6 @@
     transition: 0.3s ease-in-out;
 }
 .login_btn {
-    margin-right: 80px;
     text-decoration: none;
     font-weight: 500;
     background: #1facf3;

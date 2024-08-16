@@ -2,21 +2,15 @@
     display: flex;
     flex-direction: column;
     justify-content: start;
-    gap: 30px;
-    padding: 40px 10px;
+    gap: 10px;
+    padding: 20px 10px 40px;
     background: #ecf3f6;
     min-height: 100vh;
+    
+    
 }
-.order_container header {
-    position: relative !important;
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.order_container header h2 {
-    flex: 1;
+.order_container header div {
+    gap: 20px;
 }
 .order_container header .select_box {
     width: 130px;
@@ -72,6 +66,7 @@
     background: #ecf3f6;
     padding: 30px;
     border-radius: 20px;
+    animation: opacityAnimation 1.5s ease-out;
 }
 .order .img_side .date_div {
     height: 50px;
@@ -110,28 +105,27 @@
     & p {
         font-size: 14px;
     }
-    & #more{
-        color: #6E97AE;
+    & #more {
+        color: #6e97ae;
     }
 }
 
-.detail_side .buttons{
+.detail_side .buttons {
     display: flex;
     align-items: center;
     gap: 10px;
-    & button{
-        color: #34D5E5;
+    & button {
+        color: #34d5e5;
         background: #ebfbfc;
         font-weight: 600;
         border-radius: 30px;
         border: none;
         padding: 8px;
-        flex: 1 ;
+        flex: 1;
         cursor: pointer;
-        transition: .2s ease-in-out;
-        &:hover{
+        transition: 0.2s ease-in-out;
+        &:hover {
             background: #dafeff;
-
         }
     }
 }
@@ -143,5 +137,48 @@
     background: #30d472;
 }
 .red_status {
-    background: #D14646;
+    background: #d14646;
+}
+
+
+.order_details_container {
+    width: 100%;
+    min-height: 100vh;
+    background: #ecf3f6;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding:30px 70px;
+
+
+    && .skip_btn{
+        top: 33px;
+        left: 70px;
+        cursor: pointer;
+        width: 40px;
+        
+    }
+    && .heading{
+        text-align: center;
+    }
+    && .two_components{
+        width: 100%;
+    }
+}
+.status_notification{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    background: #34d6e523;
+    padding: 5px;
+    border-radius: 30px;
+
+    && img{
+        width: 25px;
+    }
+    && p{
+        color: #34D5E5;
+        font-weight: 600;
+    }
 }

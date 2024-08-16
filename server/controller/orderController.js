@@ -12,7 +12,7 @@ exports.all_orders = async (req, res) => {
     try {
         const { id } = req.query;
         if (!id || !mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).json({ error: true, status: false, message: "Undefined or Invalid order ID" });
+            return res.status(400).json({ error: true, status: false, message: "Undefined or Invalid user ID" });
         }
         const aggregationPipeline = [
             {

@@ -8,7 +8,7 @@ import store from "./Redux/store.jsx";
 import { SnackbarProvider } from "notistack";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <Provider store={store}>
             <SnackbarProvider maxSnack={3}>
                 <BrowserRouter>
@@ -16,5 +16,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 </BrowserRouter>
             </SnackbarProvider>
         </Provider>
-    </React.StrictMode>
+    // </React.StrictMode>
 );

@@ -14,7 +14,9 @@ import Services from "./pages/ServicePages/Services";
 import Instructions from "./pages/InstructionPage/Instructions";
 import Summary from "./pages/SummaryPage/Summary";
 import BookingConfirmPage from "./pages/BookingConfirmPage/BookingConfirmPage";
-import Orders from "./pages/orderPage/Orders";
+import Orders from "./pages/OrderPage/Orders";
+import Profile from "./pages/ProfileSection/Profile";
+import OrderDetails from "./pages/OrderPage/OrderDetails";
 const App = () => {
     return (
         <>
@@ -38,6 +40,8 @@ const App = () => {
                 <Route exact path="/booking_confirmed" Component={BookingConfirmPage} />
 
                 <Route exact path="/orders" Component={Orders} />
+                <Route exact path="/orders/details" Component={OrderDetails} />
+                <Route exact path="/profile" Component={Profile} />
 
 
 
