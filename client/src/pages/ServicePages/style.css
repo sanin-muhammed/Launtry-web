@@ -2,6 +2,7 @@
     background: #8ff2ff;
     width: 100%;
     min-height: 100vh;
+    animation: opacityAnimation 1s ease-out ;
 }
 .washing_container {
     .skip_btn {

@@ -42,7 +42,7 @@ const PaymentMethod = () => {
         } else if (!pickupDate.date || !pickupDate.slote) {
             enqueueSnackbar("Pickup date is missing", { variant: "error" });
             return;
-        } else if (!delivery.delivery || !delivery.expressDelivery || !delivery.expectedDelivery) {
+        } else if (!delivery.delivery || !delivery.expectedDelivery) {
             enqueueSnackbar("Delivery information is missing", { variant: "error" });
             return;
         } else if (!totalAmount) {
@@ -56,7 +56,7 @@ const PaymentMethod = () => {
         setOpen(false);
     };
     const handleClickPayment = async () => {
-        const response = await confirmOrder({ userId: user._id, serviceId: service._id, products: cartList, instructions: instructions ? instructions : {}, pickupDate, pickupAddressId: address, deliveryAddress: delivery.delivery, expectedDelivery: delivery.expectedDelivery, expressDelivery: delivery.expressDelivery, paymentMethod, totalAmount });
+        const response = await confirmOrder({ userId: user._id, serviceId: service._id, products: cartList, instructions: instructions ? instructions : {}, pickupDate, pickupAddressId: address, deliveryAddressId: delivery.delivery, expectedDelivery: delivery.expectedDelivery, expressDelivery: delivery.expressDelivery, paymentMethod, totalAmount });
         if (response.status) {
             navigate("/booking_confirmed");
         } else {

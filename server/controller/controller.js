@@ -4,7 +4,9 @@ const Pickup = require("../models/pickup");
 const Product = require("../models/product");
 const Service = require("../models/service");
 
-
+// @des:all banners api
+// method:get
+// api:/all_banners
 
 exports.all_banners = async (req, res) => {
     try {
@@ -18,6 +20,10 @@ exports.all_banners = async (req, res) => {
     }
 };
 
+// @des:all offers api
+// method:get
+// api:/all_offers
+
 exports.all_offers = async (req, res) => {
     try {
         const offers = await Offer.find();
@@ -29,6 +35,10 @@ exports.all_offers = async (req, res) => {
         res.status(500).json({ error: true, status: false, message: "server error" });
     }
 };
+
+// @des:all services api
+// method:get
+// api:/all_services
 
 exports.all_services = async (req, res) => {
     try {
@@ -42,6 +52,10 @@ exports.all_services = async (req, res) => {
     }
 };
 
+// @des:all products api
+// method:get
+// api:/all_products
+
 exports.all_products = async (req, res) => {
     try {
         const products = await Product.find();
@@ -53,6 +67,9 @@ exports.all_products = async (req, res) => {
         res.status(500).json({ error: true, status: false, message: "server error" });
     }
 };
+// @des:all pickup address api
+// method:get
+// api:/all_pickups
 
 exports.all_pickups = async (req, res) => {
     try {

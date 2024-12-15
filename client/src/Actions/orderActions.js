@@ -1,8 +1,8 @@
 import axios from "../config/axiosConfig";
 
-export const allAddress = async () => {
+export const allAddress = async (id) => {
     try {
-        const response = await axios.get("/all_address");
+        const response = await axios.get(`/all_address?id=${id}`);
         console.log(" successful:", response.data);
         return response.data;
     } catch (error) {

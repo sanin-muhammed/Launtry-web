@@ -79,6 +79,7 @@ export const createPassword = async (formData) => {
 
 export const authentication = async () => {
     const token = localStorage.getItem("token");
+    console.log({token});
     const headers = {
         Authorization: `Bearer ${token}`,
     };

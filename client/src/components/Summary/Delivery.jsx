@@ -55,10 +55,10 @@ const Delivery = ({ addresses }) => {
                         <label htmlFor="delivery">{item.address}</label>
                     </div>
                 ))}
-                <div className="delivery">
+                {/* <div className="delivery">
                     <input type="radio" value="Collect from store" name="delivery" onClick={handleInput} />
                     <label htmlFor="delivery">Collect from store </label>
-                </div>
+                </div> */}
                 <p>
                     Expected Delivery : <span>{pickupDate.date ? formData.expectedDelivery : "In 2 days"}</span>
                 </p>

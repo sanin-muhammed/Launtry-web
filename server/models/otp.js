@@ -13,7 +13,7 @@ const otpSchema = new mongoose.Schema({
         type: Date,
         required: true,
         default: function () {
-            return new Date(Date.now() + 3 * 60 * 1000); // 3 minutes in milliseconds
+            return new Date(Date.now() + 1 * 60 * 1000); // 1 minutes in milliseconds
         },
         index: { expires: 0 },
     },

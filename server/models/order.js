@@ -29,8 +29,8 @@ const orderSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
-    deliveryAddress: {
-        type: String ,
+    deliveryAddressId: {
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
     expectedDelivery: {

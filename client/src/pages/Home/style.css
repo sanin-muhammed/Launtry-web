@@ -4,14 +4,17 @@
     background: #ecf3f6;
     height: 100vh;
     position: relative;
+    padding: 0 0 20px;
 }
- header {
+
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 60px;
     transition: 0.3s ease-in-out;
-    && .nav{
+
+    && .nav {
         width: 100%;
         display: flex;
         align-items: center;
@@ -21,32 +24,35 @@
         padding: 10px 20px;
         border-radius: 10px;
         transition: 0.3s ease-in-out;
-        
+
     }
-        && h1{
-            text-transform: capitalize;
-            font-weight: 600;
-            animation: opacityAnimation 1s ease-in-out;
-        }
+
+    && h1 {
+        text-transform: capitalize;
+        font-weight: 600;
+        animation: opacityAnimation 1s ease-in-out;
+    }
 }
 
 
- header div{
+header div {
     display: flex;
     align-items: center;
 }
- header h1 {
+
+header h1 {
     font-size: 2.2em;
     transition: 0.3s ease-in-out;
 }
 
-.navbar{
+.navbar {
     display: flex;
     align-items: center !important;
     gap: 20px;
 
 }
-.navbar .nav_link{
+
+.navbar .nav_link {
     text-decoration: none;
     color: #000;
     font-weight: 650;
@@ -54,22 +60,29 @@
     animation: letterAnim 1s ease-in-out;
     z-index: 999;
     transition: .2s ease-in-out;
-    &&:hover{
+
+    &&:hover {
         color: #1facf3;
         letter-spacing: 1.7px;
     }
 }
-.active{
+
+.active {
     color: #1facf3 !important;
 
 }
+
 @keyframes letterAnim {
-    0%{
+    0% {
         letter-spacing: -20px;
         opacity: 0;
-    }70%{
+    }
+
+    70% {
         letter-spacing: 4px;
-    }100%{
+    }
+
+    100% {
         opacity: 1;
         letter-spacing: 1px;
     }
@@ -84,6 +97,7 @@
     right: 0;
     transition: 0.3s ease-in-out;
 }
+
 .login_btn {
     text-decoration: none;
     font-weight: 500;
@@ -95,10 +109,12 @@
     z-index: 999;
     transition: 0.3s ease-in-out;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
         background: #007ebc;
     }
 }
+
 .Home_container section {
     display: flex;
     flex-direction: column;
@@ -106,6 +122,7 @@
     padding: 30px 0;
     transition: 0.3s ease-in-out;
 }
+
 .slider {
     width: 90%;
     height: 500px;
@@ -114,17 +131,20 @@
     border-radius: 100px;
     background: #fff;
 }
+
 .slider_div {
     width: 100%;
     height: 500px;
     transition: 0.3s ease-in-out;
 }
+
 .slider_div img {
     width: 100%;
     height: 100%;
     border-radius: 100px;
     transition: 0.3s ease-in-out;
 }
+
 .slick-dots li {
     width: 15px !important;
     height: 15px !important;
@@ -134,9 +154,11 @@
     top: 10px;
     transition: 0.3s ease-in-out;
 }
+
 .slick-dots li button {
     opacity: 0;
 }
+
 .slick-dots li.slick-active {
     border: 3px solid #1facf3;
     background: #1facf3;
@@ -153,6 +175,7 @@
     border-radius: 20px;
     transition: 0.3s ease-in-out;
 }
+
 .offer_header {
     display: flex;
     width: 100%;
@@ -160,10 +183,12 @@
     color: #1facf3;
     transition: 0.3s ease-in-out;
 }
+
 .offer_header img {
     width: 30px;
     transition: 0.3s ease-in-out;
 }
+
 .offers {
     width: 100%;
     display: flex;
@@ -173,9 +198,21 @@
     flex-wrap: nowrap;
     transition: 0.3s ease-in-out;
 }
+
 .offers::-webkit-scrollbar {
     display: none;
 }
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .offers .offer {
     width: 100%;
     min-width: 400px !important;
@@ -185,16 +222,25 @@
     border-radius: 6px;
     padding: 20px;
     transition: 0.3s ease-in-out;
+    opacity: 1;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
+
 }
+
 .offer p {
     font-weight: 500;
 }
+
 .offer h1 {
     font-weight: 500;
     color: #6e97ae;
     font-size: 2em;
     transition: 0.3s ease-in-out;
 }
+
 .services {
     width: 90%;
     margin: auto;
@@ -203,6 +249,7 @@
     gap: 30px;
     transition: 0.3s ease-in-out;
 }
+
 .services .service {
     text-decoration: none;
     color: #000;
@@ -214,27 +261,45 @@
     gap: 10px;
     border-radius: 20px;
     padding: 50px 20px;
-    transition: 0.3s ease-in-out;
+    transition: 1s ease-in-out;
+    cursor: pointer;
+
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+
+
+
+
+    &&:hover img {
+        scale: 1.01;
+    }
 }
+
+
+
+
+
+
+
+
 .services .service img {
     height: 130px;
     transition: 0.3s ease-in-out;
 }
+
 .services .service h2 {
     font-weight: 500;
     transition: 0.3s ease-in-out;
 }
 
-
-
-
-
-
 @media (max-width: 992px) {
+
     .slider,
     .slider_div {
         height: 400px;
     }
+
     .services {
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
@@ -245,13 +310,16 @@
     .frame2_img {
         width: 90%;
     }
+
     .Home_container header h1 {
         font-size: 1.7em;
     }
+
     .slider,
     .slider_div {
         height: 300px;
     }
+
     .services {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
@@ -262,13 +330,16 @@
     .Home_container section {
         gap: 20px;
     }
+
     .Home_container header {
         padding: 30px;
     }
+
     .Home_container header h1 {
         font-weight: 500;
         font-size: 1.3em;
     }
+
     .login_btn {
         padding: 5px 25px;
     }
@@ -277,6 +348,7 @@
     .slider_div {
         height: 160px;
     }
+
     .slick-dots li {
         width: 10px !important;
         height: 10px !important;
@@ -286,21 +358,27 @@
     .offer_header {
         gap: 10px;
     }
+
     .offer_header h1 {
         font-size: 1.2em;
     }
+
     .offer_header img {
         width: 20px;
     }
+
     .offer h1 {
         font-size: 1.5em;
     }
+
     .services {
         gap: 20px;
     }
+
     .services .service img {
         height: 80px;
     }
+
     .services .service h2 {
         font-size: 1.1em;
     }
@@ -310,20 +388,25 @@
     .Home_container header {
         padding: 20px;
     }
+
     .slider,
     .slider_div {
         height: 130px;
     }
+
     .offer_div {
         padding: 15px;
     }
+
     .offer_header h1 {
         font-weight: 700;
         font-size: 1.1em;
     }
+
     .offers .offer {
         padding: 10px 20px;
     }
+
     .offer h1 {
         font-size: 1.3em;
     }
@@ -331,9 +414,11 @@
     .services .service {
         padding: 30px 10px;
     }
+
     .services .service img {
         height: 50px;
     }
+
     .services .service h2 {
         font-weight: 400;
         font-size: 1em;

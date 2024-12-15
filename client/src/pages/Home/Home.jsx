@@ -35,9 +35,6 @@ const Home = () => {
                     {user ? (
                         <>
                             <Navbar />
-                            {/* <button onClick={handleLogout} className="login_btn">
-                                Logout
-                                </button> */}
                         </>
                     ) : (
                         <Link to="/authPage" className="login_btn">

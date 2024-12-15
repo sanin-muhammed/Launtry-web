@@ -115,7 +115,7 @@ exports.verify_otp_login = async (req, res) => {
     }
 };
 
-// @des: Otp api
+// @des: verify otp api
 // method:post
 // api:/verify_otp
 
@@ -142,7 +142,7 @@ exports.verify_otp = async (req, res) => {
     }
 };
 
-// @des:otp api
+// @des:send otp api
 // method:post
 // api:/send_otp
 
@@ -181,7 +181,7 @@ exports.send_otp = async (req, res) => {
     }
 };
 
-// @des:otp api
+// @des:password api
 // method:post
 // api:/create_password
 

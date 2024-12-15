@@ -6,15 +6,26 @@ const Address = require("../models/address");
 // api:/all_address
 
 exports.all_address = async (req, res) => {
-    try {
-        const address = await Address.find();
-        console.log("address = ", address);
-        res.status(200).json({ error: false, status: true, message: "find all address successfully", data: address });
-        console.log("find all address successfully".bold.yellow);
-    } catch (error) {
-        console.log("server error".bold.red);
-        res.status(500).json({ error: true, status: false, message: "server error" });
-    }
+  console.log("req query = ", req.query);
+  try {
+    const { id } = req.query;
+    const address = await Address.find({
+        $or: [{ userId: id }, { address: "Collect from store" }],
+      }).sort({
+        userId: -1, // Sort by userId to prioritize entries where userId matches (descending order)
+        address: 1  // Then sort alphabetically, "Collect from store" will naturally be at the bottom
+      });
+      
+      
+      
+
+    console.log("address = ", address);
+    res.status(200).json({ error: false, status: true, message: "find all address successfully", data: address });
+    console.log("find all address successfully".bold.yellow);
+  } catch (error) {
+    console.log("server error".bold.red, error);
+    res.status(500).json({ error: true, status: false, message: "server error" });
+  }
 };
 
 // @des:add address api
@@ -22,19 +33,19 @@ exports.all_address = async (req, res) => {
 // api:/add_address
 
 exports.add_address = async (req, res) => {
-    console.log(req.body);
-    try {
-        const { destination, address, phoneNumber } = req.body;
+  console.log(req.body);
+  try {
+    const { userId, destination, address, phoneNumber } = req.body;
 
-        const newAddress = new Address({ destination, address, phoneNumber });
-        await newAddress.save();
-        console.log("new address =", newAddress);
-        res.status(200).json({ error: false, status: true, message: "added new address " });
-        console.log("added new address ".bold.yellow);
-    } catch (error) {
-        console.log("server error".bold.red);
-        res.status(500).json({ error: true, status: false, message: "server error" });
-    }
+    const newAddress = new Address({ userId, destination, address, phoneNumber });
+    await newAddress.save();
+    console.log("new address =", newAddress);
+    res.status(200).json({ error: false, status: true, message: "added new address " });
+    console.log("added new address ".bold.yellow);
+  } catch (error) {
+    console.log("server error".bold.red, error);
+    res.status(500).json({ error: true, status: false, message: "server error" });
+  }
 };
 
 // @des:edit address api
@@ -42,19 +53,19 @@ exports.add_address = async (req, res) => {
 // api:/edit_address
 
 exports.edit_address = async (req, res) => {
-    console.log(req.body);
-    console.log(req.query);
-    try {
-        const { destination, address, phoneNumber } = req.body;
-        const { id } = req.query;
-        const editedAddress = await Address.findByIdAndUpdate(id, { destination, address, phoneNumber });
-        console.log("edited address =", editedAddress);
-        res.status(200).json({ error: false, status: true, message: "address updated " });
-        console.log("address updated ".bold.yellow);
-    } catch (error) {
-        console.log("server error".bold.red);
-        res.status(500).json({ error: true, status: false, message: "server error" });
-    }
+  console.log(req.body);
+  console.log(req.query);
+  try {
+    const { destination, address, phoneNumber } = req.body;
+    const { id } = req.query;
+    const editedAddress = await Address.findByIdAndUpdate(id, { destination, address, phoneNumber });
+    console.log("edited address =", editedAddress);
+    res.status(200).json({ error: false, status: true, message: "address updated " });
+    console.log("address updated ".bold.yellow);
+  } catch (error) {
+    console.log("server error".bold.red);
+    res.status(500).json({ error: true, status: false, message: "server error" });
+  }
 };
 
 // @des:delete address api
@@ -62,19 +73,19 @@ exports.edit_address = async (req, res) => {
 // api:/delete_address
 
 exports.delete_address = async (req, res) => {
-    console.log(req.query);
-    try {
-        const { id } = req.query;
-        const deletedAddress = await Address.findByIdAndDelete(id);
-        if (!deletedAddress) {
-            console.log("address not deleted".bold.red);
-            res.status(400).json({ error: true, status: false, message: "address not deleted !" });
-            return;
-        }
-        res.status(200).json({ error: false, status: true, message: "address deleted " });
-        console.log("address deleted ".bold.yellow);
-    } catch (error) {
-        console.log("server error".bold.red);
-        res.status(500).json({ error: true, status: false, message: "server error" });
+  console.log(req.query);
+  try {
+    const { id } = req.query;
+    const deletedAddress = await Address.findByIdAndDelete(id);
+    if (!deletedAddress) {
+      console.log("address not deleted".bold.red);
+      res.status(400).json({ error: true, status: false, message: "address not deleted !" });
+      return;
     }
+    res.status(200).json({ error: false, status: true, message: "address deleted " });
+    console.log("address deleted ".bold.yellow);
+  } catch (error) {
+    console.log("server error".bold.red);
+    res.status(500).json({ error: true, status: false, message: "server error" });
+  }
 };

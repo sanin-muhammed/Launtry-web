@@ -51,6 +51,17 @@ exports.all_orders = async (req, res) => {
             {
                 $unwind: "$pickupAddressDetails", // Unwind the pickupAddressDetails array
             },
+            {
+                $lookup: {
+                    from: "addresses", // The collection name
+                    localField: "deliveryAddressId",
+                    foreignField: "_id",
+                    as: "deliveryAddressDetails",
+                },
+            },
+            {
+                $unwind: "$deliveryAddressDetails", // Unwind the deliveryAddressDetails array
+            },
         ];
         const orders = await Order.aggregate(aggregationPipeline);
         console.log(orders, "==orders");
@@ -70,7 +81,7 @@ exports.all_orders = async (req, res) => {
 exports.add_order = async (req, res) => {
     console.log("req body", req.body);
     try {
-        const { userId, serviceId, products, instructions, pickupDate, pickupAddressId, deliveryAddress, expectedDelivery, expressDelivery, paymentMethod, totalAmount } = req.body;
+        const { userId, serviceId, products, instructions, pickupDate, pickupAddressId, deliveryAddressId, expectedDelivery, expressDelivery, paymentMethod, totalAmount } = req.body;
         const orderId = generateRandomId();
         const createdDate = createDate();
 
@@ -82,7 +93,7 @@ exports.add_order = async (req, res) => {
             instructions: instructions || null,
             pickupDate,
             pickupAddressId,
-            deliveryAddress,
+            deliveryAddressId,
             expectedDelivery,
             expressDelivery,
             totalAmount,

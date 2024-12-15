@@ -182,3 +182,37 @@
         font-weight: 600;
     }
 }
+
+.date_and_btn{
+    display: flex;
+    padding-top: 5px;
+}
+
+.date_div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    && div{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+.btn_div{
+    margin-left: auto;
+}
+.btn_div button{
+    background: #1FACF3;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.pickupdate_container .content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
