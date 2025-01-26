@@ -45,12 +45,9 @@ export const deleteAddress = async (id) => {
 };
 
 export const allOrders = async (id) => {
-    const token = localStorage.getItem("token");
+    
     try {
-        const headers = {
-            Authorization: `Bearer ${token}`,
-        };
-        const response = await axios.get(`/all_orders?id=${id}`, { headers });
+        const response = await axios.get(`/all_orders?id=${id}`);
         console.log(" successful:", response.data);
         return response;
     } catch (error) {

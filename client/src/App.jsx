@@ -15,8 +15,9 @@ import Instructions from "./pages/InstructionPage/Instructions";
 import Summary from "./pages/SummaryPage/Summary";
 import BookingConfirmPage from "./pages/BookingConfirmPage/BookingConfirmPage";
 import Orders from "./pages/OrderPage/Orders";
-import Profile from "./pages/ProfileSection/Profile";
+import Profile from "./pages/ProfileSection/Profile";   
 import OrderDetails from "./pages/OrderPage/OrderDetails";
+import ContactUs from "./pages/ProfileSection/ContactUs";
 const App = () => {
     return (
         <>
@@ -42,6 +43,7 @@ const App = () => {
                 <Route exact path="/orders" Component={Orders} />
                 <Route exact path="/orders/details" Component={OrderDetails} />
                 <Route exact path="/profile" Component={Profile} />
+                <Route exact path="/profile/contact_us" Component={ContactUs} />
 
 
 

@@ -32,7 +32,7 @@ const OrderList = () => {
                         <div className="detail_side">
                             <div className="detail_head">
                                 <h3>{item.serviceDetails.service}</h3>
-                                <p className={item.status === "Completed" ? "green_status" : item.status === "Cancelled" ? "red_status" : "yellow_status"}>{item.status}</p>
+                                <p className={`status ${item.status === "Completed" ? "green_status" : item.status === "Cancelled" ? "red_status" : "yellow_status"}`}>{item.status}</p>
                             </div>
                             <div className="product_items">
                                 {item.products.slice(0, 3).map((item, index) => (

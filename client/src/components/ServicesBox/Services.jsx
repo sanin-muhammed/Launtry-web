@@ -36,10 +36,10 @@ const Services = () => {
 
     return (
         <div className="services">
-            {services.map((item, index) => (
+            {services?.map((item, index) => (
                 <div onClick={() => handleService(item)} className="service" key={index}>
-                    <img src={item.serviceImage} alt="image" />
-                    <h2>{item.service}</h2>
+                    <img src={item?.serviceImage} alt="image" />
+                    <h2>{item?.service}</h2>
                 </div>
             ))}
         </div>

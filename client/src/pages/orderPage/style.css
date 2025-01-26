@@ -53,6 +53,9 @@
     border-bottom-width: 2px;
     padding-bottom: 8px;
 }
+.detail_side .detail_head .status{
+    cursor: default;
+}
 .order .img_side {
     display: flex;
     flex-direction: column;
@@ -66,7 +69,7 @@
     background: #ecf3f6;
     padding: 30px;
     border-radius: 20px;
-    animation: opacityAnimation 1.5s ease-out;
+    animation: opacityAnimation 2s ease-out;
 }
 .order .img_side .date_div {
     height: 50px;

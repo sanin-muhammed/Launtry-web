@@ -30,9 +30,9 @@ const OfferSlider = () => {
 
     return (
         <Slider {...settings} className="slider">
-            {banners.map((banner, index) => (
+            {banners?.map((banner, index) => (
                 <div className="slider_div" key={index}>
-                    <img src={banner.bannerImage} className="offerImg" alt="" />
+                    <img src={banner?.bannerImage} className="offerImg" alt="" />
                 </div>
             ))}
         </Slider>

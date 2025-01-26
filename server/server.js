@@ -7,6 +7,7 @@ const otherRoutes = require("./routes/routes");
 const addressRoutes = require("./routes/addressRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const ratingRoutes = require("./routes/ratingRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 const connectDB = require("./config/database");
 const app = express();
 require("dotenv").config();
@@ -23,6 +24,7 @@ app.use("/api", otherRoutes);
 app.use("/api", addressRoutes);
 app.use("/api", orderRoutes);
 app.use("/api", ratingRoutes);
+app.use("/api", chatRoutes);
 
 app.listen(PORT, () => {
     console.log("server running on port".bold, PORT.yellow.bold);

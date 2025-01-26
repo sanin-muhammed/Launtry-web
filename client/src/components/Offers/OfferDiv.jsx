@@ -23,10 +23,10 @@ const OfferDiv = () => {
                 <h1>Offers</h1>
             </div>
             <div className="offers">
-                {offers.map((item, index) => (
+                {offers?.map((item, index) => (
                     <div className="offer" key={index}>
-                        <p>{item.offer}</p>
-                        <h1>₹ {item.price}</h1>
+                        <p>{item?.offer}</p>
+                        <h1>₹ {item?.price}</h1>
                     </div>
                 ))}
             </div>
